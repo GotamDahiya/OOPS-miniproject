@@ -22,39 +22,23 @@ public class game
 	}
 	static boolean win(int l,int[] a,int n)
 	{
-		int i=0,c=0;
-		while(i<n)
+		int i=0;
+		boolean state=false;
+		if(a[0]==0)
 		{
-			if(a[i+l]==0)
+			while(i<n)
 			{
-				if((i+l)>(n-1))
-				{	
-					c=1;
-					break;
-				}
-			}
-			else if(a[i+1]==0)
-			{
-				if(a[i+1+l]==0)
-				{
-					if((i+1+l)>(n-1))
-					{
-						c=1;
-						break;
-					}
-				}
-			}
-			else if(a[i+l]==0 && (i+l)<(n-1)) i=i+l;
-			else if((a[i+1]==0 && a[i+l]==1)) i++;
-			System.out.println("b");
-			if(a[i+1]==1 || a[i+l]==1)
-			{
-				c=0;
-				break;
+				if(a[i+l]==0 && (i+l)>(n-1))
+				{ state=true;
+				  break;}
+				else if(a[i+l]==0)
+					{i=i+l;}
+				else if(a[i+1]==0)
+					{i++;}
+				else if(a[i+1]==0 && (i+1)>(n-1))
+					{state=true;
+					 break;}
 			}
 		}
-		System.out.println("a");
-		if(c==1) return true;
-		else return false;
 	}
 }
